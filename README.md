@@ -1,10 +1,10 @@
-# Nuxt 3 Minimal Starter
+# sac-website
 
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+The Splatoon Advanced Circuit website, written using [nuxt3.](https://v3.nuxtjs.org)
 
 ## Setup
 
-Make sure to install the dependencies
+Install dependencies
 
 ```bash
 yarn install
@@ -18,12 +18,13 @@ Start the development server on http://localhost:3000
 yarn dev
 ```
 
-## Production
+## Building
 
-Build the application for production:
+Build the application for production and start it
 
 ```bash
 yarn build
+yarn start
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
+View [deployment documentation](https://v3.nuxtjs.org/docs/deployment) on the Nuxt documentation.
