@@ -45,6 +45,7 @@
                         <p class="text-4xl font-bold mb-2">{{ tournament.name }}</p>
                         <p class="text-lg font-light">
                             {{ formatDate(tournament.startTime) }}
+                            <span v-if="tournament.teamsCount > 0">• {{ pluralize('team', tournament.teamsCount) }}</span>
                         </p>
                         <a
                             :href="`https://battlefy.com/inkling-performance-labs/${tournament.slug}/${tournament._id}/info?infoTab=details`"
@@ -74,39 +75,37 @@
     </NuxtLayout>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { BfyOrganizationTournaments } from '~/types/battlefy';
 import { formatDate } from '~/utils/date';
+import { pluralize } from '~/utils/string';
 
-export default defineComponent({
-    components: {
-        FontAwesomeIcon
-    },
+onMounted(() => {
+    const headerVideoElem = document.getElementById('header-video') as HTMLVideoElement;
+    headerVideoElem.src = 'https://files.iplabs.work/file/iplabs-public/SAC/web.mp4';
+    headerVideoElem.addEventListener('loadeddata', () => {
+        headerVideoElem.style.opacity = '1';
+    })
+});
 
-    async setup() {
-        onMounted(() => {
-            const headerVideoElem = document.getElementById('header-video') as HTMLVideoElement;
-            headerVideoElem.src = 'https://files.iplabs.work/file/iplabs-public/SAC/web.mp4';
-            headerVideoElem.addEventListener('loadeddata', () => {
-                headerVideoElem.style.opacity = '1';
-            })
-        });
-
-        definePageMeta({
-            layout: false
-        })
-
-        const bfyTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?page=1&size=9')
-        const sacTournaments = bfyTournaments.data.value.tournaments
-            ?.filter(tournament => tournament.name.toLowerCase().includes('sac')) ?? [];
-
-        return {
-            sacTournaments,
-            formatDate
-        }
-    }
+definePageMeta({
+    layout: false
 })
+
+const bfyUpcomingTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC&page=1&size=2')
+const bfyPastTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC&page=1&size=10')
+const sortedPastTournaments = bfyPastTournaments.data.value?.tournaments ?? [];
+sortedPastTournaments.sort((a, b) => new Date(a.startTime).valueOf() - new Date(b.startTime).valueOf());
+const sacTournaments = [
+    ...(sortedPastTournaments),
+    ...(bfyUpcomingTournaments.data.value?.tournaments ?? [])
+];
+
+defineExpose({
+    sacTournaments
+})
+
 </script>
 
 <style lang="scss">
