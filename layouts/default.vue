@@ -7,7 +7,7 @@
             <div class="page-width-cap z-10 relative">
                 <div class="w-full h-20 flex flex-row justify-between items-center drop-shadow-lg">
                     <a href="/" class="w-max h-full z-10 ml-3">
-                        <img src="~/assets/images/sac-logo-header.png" alt="SAC Logo" class="h-full">
+                        <img src="~assets/images/sac-logo-header.png" alt="SAC Logo" class="h-full">
                     </a>
                     <font-awesome-icon :icon="['fas', 'bars']" class="text-3xl md:hidden cursor-pointer mr-3 z-10" @click="menuOpen = !menuOpen" />
                     <div
@@ -52,7 +52,7 @@
         </main>
         <footer class="w-full px-3 md:px-16 text-white bg-sac-blue-1000 py-12 md:py-20 text-gray-200">
             <div class="mx-auto text-center font-light">
-                <img class="mx-auto sm:w-96 w-3/4 mb-2" src="~/assets/images/ipl-powered.png" alt="Powered By Inkling Performance Labs">
+                <img class="mx-auto sm:w-96 w-3/4 mb-2" src="assets/images/ipl-powered.png" alt="Powered By Inkling Performance Labs">
                 <p class="mb-4">Splatoon Advanced Circuit is a part of the Inkling Performance Labs Family.</p>
                 <p>© {{ new Date().getFullYear() }} Inkling Performance Labs</p>
                 <p>Designed by the IPL team</p>
