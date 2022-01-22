@@ -28,5 +28,11 @@ export default defineNuxtConfig({
             { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }
         ]
     },
+    publicRuntimeConfig: {
+        app: {
+            basePath: '/',
+            assetsPath: '/_nuxt/'
+        }
+    },
     ...(process.env.NODE_ENV === 'production' ? productionConfig : {})
 })
