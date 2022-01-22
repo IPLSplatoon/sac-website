@@ -1,0 +1,19 @@
+.link-button {
+    @apply duration-default px-5 py-1.5 mt-2 inline-block rounded-md text-xl;
+
+    &.link-button-red {
+        @apply bg-sac-red-light hover:bg-sac-red-dark;
+    }
+
+    &.link-button-cyan {
+        @apply bg-sac-cyan-light hover:bg-sac-cyan-dark text-stone-900;
+    }
+
+    &.link-button-gray {
+        @apply bg-sac-disabled-gray-light hover:bg-sac-disabled-gray-dark text-stone-900;
+    }
+
+    &.link-button-outline-white {
+        @apply ring-2 ring-inset ring-white hover:bg-white hover:text-black;
+    }
+}

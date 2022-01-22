@@ -1,0 +1,17 @@
+@use 'sass:math';
+
+@mixin video-cover($aspect-width, $aspect-height) {
+    max-width: 1000%;
+    height: 100%;
+    width: math.div(100vh * $aspect-width, $aspect-height);
+    min-width: 100%;
+    min-height: math.div(100vw * $aspect-height, $aspect-width);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video-cover-16-9 {
+    @include video-cover(16, 9);
+}
