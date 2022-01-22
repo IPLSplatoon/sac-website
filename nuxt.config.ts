@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     },
     publicRuntimeConfig: {
         app: {
-            basePath: '/',
+            basePath: '/_nuxt/',
             assetsPath: '/_nuxt/'
         }
     },
