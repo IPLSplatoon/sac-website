@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="px-3">
                 <slot name="header" />
             </div>
         </header>
