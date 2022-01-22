@@ -2,7 +2,7 @@
     <NuxtLayout>
         <template #header-background>
             <div class="overflow-hidden h-full relative">
-                <video preload="none" autoplay loop playsinline muted class="video-cover-16-9 transition-opacity duration-1000 opacity-0" id="header-video" />
+                <video preload="none" autoplay loop playsinline muted class="video-cover transition-opacity duration-1000 opacity-0" id="header-video" />
             </div>
         </template>
         <template #header>
