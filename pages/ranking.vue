@@ -43,7 +43,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="mt-4 text-stone-300 font-light">Displaying the top 16 teams. Data retrieved {{ formatDateShort(new Date()) }}</div>
+                <div class="mt-4 text-stone-300 font-light">Displaying the top {{ rankings.length }} teams. Data retrieved {{ formatDateShort(new Date()) }}</div>
             </div>
         </div>
     </nuxt-layout>
