@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <error-page message="Page not found!" />
 </template>
@@ -7,7 +8,6 @@ import { defineComponent } from '@vue/runtime-core';
 import ErrorPage from '~/components/ErrorPage.vue';
 
 export default defineComponent({
-    name: 'error',
     components: { ErrorPage }
-})
+});
 </script>

@@ -31,4 +31,4 @@ export default [
         title: 'I have a question that’s not answered here…',
         description: 'Head over to the #helpdesk channel over in the SAC category of the IPL Discord server and a member of staff will be able to answer your question.'
     }
-]
+];

@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt3'
+import { defineNuxtConfig } from 'nuxt3';
 
 // Adding this configuration when using the dev server prevents CSS from loading.
 // Removing this configuration when in production mode prevents images from loading.
@@ -6,7 +6,7 @@ const productionConfig = {
     vite: {
         base: '/'
     }
-}
+};
 
 export default defineNuxtConfig({
     css: ['@/assets/css/styles.scss'],
@@ -35,4 +35,4 @@ export default defineNuxtConfig({
         }
     },
     ...(process.env.NODE_ENV === 'production' ? productionConfig : {})
-})
+});

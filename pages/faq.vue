@@ -8,11 +8,17 @@
         <div class="grow bg-sac-blue-500">
             <div class="page-width-cap py-4 px-3 md:px-16">
                 <details
-                    v-for="item in FaqItems"
+                    v-for="(item, index) in FaqItems"
+                    :key="`faq-item_${index}`"
                     class="faq-item"
                 >
                     <summary class="text-2xl font-normal cursor-pointer">{{ item.title }}</summary>
-                    <div class="text-lg font-light mt-2" v-html="item.description"></div>
+                    <!-- eslint-disable vue/no-v-html -->
+                    <div
+                        class="text-lg font-light mt-2"
+                        v-html="item.description"
+                    />
+                    <!-- eslint-enable vue/no-v-html -->
                 </details>
             </div>
         </div>
@@ -24,7 +30,7 @@ import FaqItems from '~/data/faqItems';
 
 definePageMeta({
     layout: false
-})
+});
 </script>
 
 <style lang="scss">

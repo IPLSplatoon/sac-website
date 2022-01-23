@@ -6,5 +6,5 @@ export default defineNuxtPlugin((app) => {
         property: {
             id: 'G-Y2FPWFMQJK'
         }
-    })
+    });
 });

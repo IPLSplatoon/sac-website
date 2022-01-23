@@ -2,7 +2,15 @@
     <NuxtLayout>
         <template #header-background>
             <div class="overflow-hidden h-full relative">
-                <video preload="none" autoplay loop playsinline muted class="video-cover transition-opacity duration-1000 opacity-0" id="header-video" />
+                <video
+                    id="header-video"
+                    preload="none"
+                    autoplay
+                    loop
+                    playsinline
+                    muted
+                    class="video-cover transition-opacity duration-1000 opacity-0"
+                />
             </div>
         </template>
         <template #header>
@@ -13,16 +21,25 @@
                     Circuit
                 </div>
                 <div class="text-3xl font-light my-2 text-sac-red-light">Season 4</div>
-                <a href="#more-info-section" class="link-button link-button-red">Read more</a>
+                <a
+                    href="#more-info-section"
+                    class="link-button link-button-red"
+                >Read more</a>
                 <i class="mx-1.5" />
-                <a href="https://iplabs.ink/discord" class="link-button link-button-outline-white">
+                <a
+                    href="https://iplabs.ink/discord"
+                    class="link-button link-button-outline-white"
+                >
                     <font-awesome-icon :icon="['fab', 'discord']" />
                     Join our Discord
                 </a>
             </div>
         </template>
         <div class="overflow-hidden grow flex flex-col">
-            <div class="bg-sac-blue-500 py-8 flex flex-row justify-center" id="more-info-section">
+            <div
+                id="more-info-section"
+                class="bg-sac-blue-500 py-8 flex flex-row justify-center"
+            >
                 <div class="max-w-screen-lg px-3 md:px-16 ml-16 md:ml-32 w-full">
                     <p class="text-4xl font-bold mb-2">SAC is back for Season 4!</p>
                     <p class="text-lg font-light">
@@ -34,29 +51,31 @@
             <div class="py-8 flex flex-row justify-center relative grow">
                 <div class="max-w-screen-lg w-full px-3 md:px-16 ml-16 md:ml-32">
                     <div class="tournaments-line" />
-                    <div
-                        v-if="sacTournaments.length > 0"
-                        v-for="tournament in sacTournaments"
-                        class="relative mb-8 last:mb-2"
-                    >
-                        <div class="station-button-container">
-                            <div class="station-button" />
-                        </div>
-                        <p class="text-4xl font-bold mb-2">{{ tournament.name }}</p>
-                        <p class="text-lg font-light">
-                            {{ formatDate(tournament.startTime) }}
-                            <span v-if="tournament.teamsCount > 0">• {{ pluralize('team', tournament.teamsCount) }}</span>
-                        </p>
-                        <a
-                            :href="`https://battlefy.com/inkling-performance-labs/${tournament.slug}/${tournament._id}/info?infoTab=details`"
-                            class="link-button link-button-cyan mt-3"
-                            :class="{
-                                'link-button-cyan': tournament.status === 'registration-open',
-                                'link-button-gray': tournament.status !== 'registration-open'
-                            }"
+                    <div v-if="sacTournaments.length > 0">
+                        <div
+                            v-for="tournament in sacTournaments"
+                            :key="`tournament_${tournament._id}`"
+                            class="relative mb-8 last:mb-2"
                         >
-                            Registration {{ tournament.status === 'registration-open' ? 'open!' : 'closed' }}
-                        </a>
+                            <div class="station-button-container">
+                                <div class="station-button" />
+                            </div>
+                            <p class="text-4xl font-bold mb-2">{{ tournament.name }}</p>
+                            <p class="text-lg font-light">
+                                {{ formatDate(tournament.startTime) }}
+                                <span v-if="tournament.teamsCount > 0">• {{ pluralize('team', tournament.teamsCount) }}</span>
+                            </p>
+                            <a
+                                :href="`https://battlefy.com/inkling-performance-labs/${tournament.slug}/${tournament._id}/info?infoTab=details`"
+                                class="link-button link-button-cyan mt-3"
+                                :class="{
+                                    'link-button-cyan': tournament.status === 'registration-open',
+                                    'link-button-gray': tournament.status !== 'registration-open'
+                                }"
+                            >
+                                Registration {{ tournament.status === 'registration-open' ? 'open!' : 'closed' }}
+                            </a>
+                        </div>
                     </div>
                     <div
                         v-else
@@ -67,7 +86,10 @@
                         </div>
                         <p class="text-4xl font-bold mb-2">We couldn't find any upcoming tournaments.</p>
                         <p class="text-lg font-light">Visit us on Battlefy to see more!</p>
-                        <a href="https://battlefy.com/inkling-performance-labs" class="link-button link-button-cyan mt-3">Battlefy</a>
+                        <a
+                            href="https://battlefy.com/inkling-performance-labs"
+                            class="link-button link-button-cyan mt-3"
+                        >Battlefy</a>
                     </div>
                 </div>
             </div>
@@ -86,15 +108,15 @@ onMounted(() => {
     headerVideoElem.src = 'https://files.iplabs.work/file/iplabs-public/SAC/web.mp4';
     headerVideoElem.addEventListener('loadeddata', () => {
         headerVideoElem.style.opacity = '1';
-    })
+    });
 });
 
 definePageMeta({
     layout: false
-})
+});
 
-const bfyUpcomingTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC&page=1&size=2')
-const bfyPastTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC&page=1&size=10')
+const bfyUpcomingTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC&page=1&size=2');
+const bfyPastTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC&page=1&size=10');
 const sortedPastTournaments = bfyPastTournaments.data.value?.tournaments ?? [];
 sortedPastTournaments.sort((a, b) => new Date(a.startTime).valueOf() - new Date(b.startTime).valueOf());
 const sacTournaments = [
@@ -104,7 +126,7 @@ const sacTournaments = [
 
 defineExpose({
     sacTournaments
-})
+});
 
 </script>
 

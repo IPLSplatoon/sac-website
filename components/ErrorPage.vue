@@ -1,8 +1,11 @@
 <template>
-<div class="text-center bg-sac-blue-500 py-6">
-    <p class="text-4xl">{{ message }}</p>
-    <a href="/" class="link-button link-button-red mt-5">Return to main page</a>
-</div>
+    <div class="text-center bg-sac-blue-500 py-6">
+        <p class="text-4xl">{{ message }}</p>
+        <a
+            href="/"
+            class="link-button link-button-red mt-5"
+        >Return to main page</a>
+    </div>
 </template>
 
 <script lang="ts">
@@ -17,5 +20,5 @@ export default defineComponent({
             required: true
         }
     }
-})
+});
 </script>

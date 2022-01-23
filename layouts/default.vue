@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div class="page-wrapper">
         <header class="w-full sm:px-3 md:px-16 py-6 relative">
@@ -6,10 +7,21 @@
             </div>
             <div class="page-width-cap z-10 relative">
                 <div class="w-full h-20 flex flex-row justify-between items-center drop-shadow-lg">
-                    <a href="/" class="w-max h-full z-10 ml-3">
-                        <img src="/images/sac-logo-header.png" alt="SAC Logo" class="h-full">
+                    <a
+                        href="/"
+                        class="w-max h-full z-10 ml-3"
+                    >
+                        <img
+                            src="/images/sac-logo-header.png"
+                            alt="SAC Logo"
+                            class="h-full"
+                        >
                     </a>
-                    <font-awesome-icon :icon="['fas', 'bars']" class="text-3xl md:hidden cursor-pointer mr-3 z-10" @click="menuOpen = !menuOpen" />
+                    <font-awesome-icon
+                        :icon="['fas', 'bars']"
+                        class="text-3xl md:hidden cursor-pointer mr-3 z-10"
+                        @click="menuOpen = !menuOpen"
+                    />
                     <div
                         class="
                             absolute md:relative
@@ -22,6 +34,7 @@
                     >
                         <a
                             v-for="link in navLinks"
+                            :key="`link-to_${link.path}`"
                             :href="link.path"
                             class="header-link"
                             :class="{ active: route.path === link.path }"
@@ -29,23 +42,47 @@
                             {{ link.text }}
                         </a>
                         <div class="grid grid-cols-3 grid-rows-2 gap-1.5 text-white text-3xl md:text-2xl text-center ml-0 md:ml-4">
-                            <a href="https://iplabs.ink/discord" class="hover:text-brand-discord hover:bg-stone-800 rounded-md duration-default" title="Discord">
+                            <a
+                                href="https://iplabs.ink/discord"
+                                class="hover:text-brand-discord hover:bg-stone-800 rounded-md duration-default"
+                                title="Discord"
+                            >
                                 <font-awesome-icon :icon="['fab', 'discord']" />
                             </a>
-                            <a href="https://battlefy.com/inkling-performance-labs" class="hover:text-brand-battlefy hover:bg-stone-800 rounded-md duration-default" title="Battlefy">
-                                <i class="icon-battlefy"></i>
+                            <a
+                                href="https://battlefy.com/inkling-performance-labs"
+                                class="hover:text-brand-battlefy hover:bg-stone-800 rounded-md duration-default"
+                                title="Battlefy"
+                            >
+                                <i class="icon-battlefy" />
                             </a>
-                            <a href="https://www.youtube.com/channel/UCFRVQSUskcsB5NjjIZKkWTA" class="hover:text-brand-youtube hover:bg-stone-800 rounded-md duration-default" title="YouTube">
+                            <a
+                                href="https://www.youtube.com/channel/UCFRVQSUskcsB5NjjIZKkWTA"
+                                class="hover:text-brand-youtube hover:bg-stone-800 rounded-md duration-default"
+                                title="YouTube"
+                            >
                                 <font-awesome-icon :icon="['fab', 'youtube']" />
                             </a>
-                            <a href="https://www.twitch.tv/IPLSplatoon" class="hover:text-brand-twitch hover:bg-stone-800 rounded-md duration-default" title="Twitch">
+                            <a
+                                href="https://www.twitch.tv/IPLSplatoon"
+                                class="hover:text-brand-twitch hover:bg-stone-800 rounded-md duration-default"
+                                title="Twitch"
+                            >
                                 <font-awesome-icon :icon="['fab', 'twitch']" />
                             </a>
-                            <a href="https://twitter.com/IPLSplatoon" class="hover:text-brand-twitter hover:bg-stone-800 rounded-md duration-default" title="Twitter">
+                            <a
+                                href="https://twitter.com/IPLSplatoon"
+                                class="hover:text-brand-twitter hover:bg-stone-800 rounded-md duration-default"
+                                title="Twitter"
+                            >
                                 <font-awesome-icon :icon="['fab', 'twitter']" />
                             </a>
-                            <a href="https://iplabs.ink" class="hover:text-brand-iplabs hover:bg-stone-800 rounded-md duration-default" title="IPLabs.ink">
-                                <i class="icon-iplabs"></i>
+                            <a
+                                href="https://iplabs.ink"
+                                class="hover:text-brand-iplabs hover:bg-stone-800 rounded-md duration-default"
+                                title="IPLabs.ink"
+                            >
+                                <i class="icon-iplabs" />
                             </a>
                         </div>
                     </div>
@@ -60,7 +97,11 @@
         </main>
         <footer class="w-full px-3 md:px-16 text-white bg-sac-blue-1000 py-12 md:py-20 text-gray-200">
             <div class="mx-auto text-center font-light">
-                <img class="mx-auto sm:w-96 w-3/4 mb-2" src="/images/ipl-powered.png" alt="Powered By Inkling Performance Labs">
+                <img
+                    class="mx-auto sm:w-96 w-3/4 mb-2"
+                    src="/images/ipl-powered.png"
+                    alt="Powered By Inkling Performance Labs"
+                >
                 <p class="mb-4">Splatoon Advanced Circuit is a part of the Inkling Performance Labs Family.</p>
                 <p>© {{ new Date().getFullYear() }} Inkling Performance Labs</p>
                 <p>Designed by the IPL team</p>
@@ -82,8 +123,6 @@ import { faBars } from '@fortawesome/free-solid-svg-icons/faBars.js';
 library.add(faTwitter, faYoutube, faDiscord, faTwitch, faBars);
 
 export default defineComponent({
-    name: 'default',
-
     components: {
         FontAwesomeIcon
     },
@@ -103,7 +142,7 @@ export default defineComponent({
             ]
         };
     }
-})
+});
 </script>
 
 <style lang="scss">
