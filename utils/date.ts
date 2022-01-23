@@ -1,4 +1,4 @@
-export function formatDate(date: string): string {
+export function formatDateLong(date: Date): string {
     return new Intl.DateTimeFormat('en', {
         month: 'long',
         day: 'numeric',
@@ -6,5 +6,12 @@ export function formatDate(date: string): string {
         hour: 'numeric',
         minute: 'numeric',
         weekday: 'long'
-    }).format(new Date(date));
+    }).format(date);
+}
+
+export function formatDateShort(date: Date): string {
+    return new Intl.DateTimeFormat('en-GB', {
+        timeStyle: 'short',
+        dateStyle: 'short'
+    }).format(date);
 }

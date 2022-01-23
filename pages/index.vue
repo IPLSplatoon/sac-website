@@ -62,7 +62,7 @@
                             </div>
                             <p class="text-4xl font-bold mb-2">{{ tournament.name }}</p>
                             <p class="text-lg font-light">
-                                {{ formatDate(tournament.startTime) }}
+                                {{ formatDateLong(new Date(tournament.startTime)) }}
                                 <span v-if="tournament.teamsCount > 0">• {{ pluralize('team', tournament.teamsCount) }}</span>
                             </p>
                             <a
@@ -100,7 +100,7 @@
 <script lang="ts" setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { BfyOrganizationTournaments } from '~/types/battlefy';
-import { formatDate } from '~/utils/date';
+import { formatDateLong } from '~/utils/date';
 import { pluralize } from '~/utils/string';
 
 onMounted(() => {

@@ -32,7 +32,8 @@ export default defineNuxtConfig({
         app: {
             basePath: '/',
             assetsPath: '/_nuxt/'
-        }
+        },
+        sacApiPath: 'https://api.sac.ink'
     },
     ...(process.env.NODE_ENV === 'production' ? productionConfig : {})
 });

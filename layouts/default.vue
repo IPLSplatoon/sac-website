@@ -19,7 +19,7 @@
                     </a>
                     <font-awesome-icon
                         :icon="['fas', 'bars']"
-                        class="text-3xl md:hidden cursor-pointer mr-3 z-10"
+                        class="text-3xl md:hidden cursor-pointer mr-5 z-10"
                         @click="menuOpen = !menuOpen"
                     />
                     <div
@@ -138,6 +138,10 @@ export default defineComponent({
                 {
                     path: '/faq',
                     text: 'FAQ'
+                },
+                {
+                    path: '/ranking',
+                    text: 'Ranking'
                 }
             ]
         };

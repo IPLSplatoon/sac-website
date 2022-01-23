@@ -27,9 +27,14 @@
 
 <script lang="ts" setup>
 import FaqItems from '~/data/faqItems';
+import { useMeta } from '#meta';
 
 definePageMeta({
     layout: false
+});
+
+useMeta({
+    title: 'SAC FAQ'
 });
 </script>
 

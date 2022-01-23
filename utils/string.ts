@@ -7,3 +7,7 @@ export function pluralize(word: string, count: number, pluralWord?: string): str
 export function formatNumber(value: number): string {
     return new Intl.NumberFormat('en-US').format(value);
 }
+
+export function isBlank(value?: string | null): boolean {
+    return value?.trim() === '';
+}
