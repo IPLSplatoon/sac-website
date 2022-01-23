@@ -14,13 +14,21 @@
                         class="
                             absolute md:relative
                             right-0 -top-6 sm:top-16 md:top-0 w-full sm:w-auto sm:right-3
-                            flex flex-col items-center sm:block
+                            flex flex-col items-center md:flex-row
                             bg-stone-900/90 md:bg-transparent
                             rounded-b-md sm:rounded-md p-2 md:p-0 pt-32 pb-6 sm:py-2
                             md:!opacity-100 transition-opacity duration-default"
                         :class="{ 'opacity-100': menuOpen, 'opacity-0': !menuOpen }"
                     >
-                        <div class="grid grid-cols-3 grid-rows-2 gap-1.5 text-white text-3xl md:text-2xl text-center">
+                        <a
+                            v-for="link in navLinks"
+                            :href="link.path"
+                            class="header-link"
+                            :class="{ active: route.path === link.path }"
+                        >
+                            {{ link.text }}
+                        </a>
+                        <div class="grid grid-cols-3 grid-rows-2 gap-1.5 text-white text-3xl md:text-2xl text-center ml-0 md:ml-4">
                             <a href="https://iplabs.ink/discord" class="hover:text-brand-discord hover:bg-stone-800 rounded-md duration-default" title="Discord">
                                 <font-awesome-icon :icon="['fab', 'discord']" />
                             </a>
@@ -82,10 +90,28 @@ export default defineComponent({
 
     setup() {
         const menuOpen = ref(false);
+        const route = useRoute();
 
         return {
-            menuOpen
+            menuOpen,
+            route,
+            navLinks: [
+                {
+                    path: '/faq',
+                    text: 'FAQ'
+                }
+            ]
         };
     }
 })
 </script>
+
+<style lang="scss">
+.header-link {
+    @apply text-2xl font-normal mx-1 mb-2 md:mb-0 hover:bg-stone-800 rounded-md duration-default px-3;
+
+    &.active {
+        @apply text-stone-800 bg-white;
+    }
+}
+</style>
