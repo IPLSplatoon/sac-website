@@ -9,5 +9,5 @@ export function formatNumber(value: number): string {
 }
 
 export function isBlank(value?: string | null): boolean {
-    return value?.trim() === '';
+    return value === undefined || value === null || value.trim() === '';
 }
