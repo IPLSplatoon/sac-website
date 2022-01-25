@@ -33,7 +33,9 @@ export default defineNuxtConfig({
             { property: 'twitter:url', content: 'https://sac.ink/' },
             { property: 'twitter:title', content: 'Splatoon Advanced Circuit' },
             { property: 'twitter:description', content: 'Splatoon Advanced Circuit is a mid-level Splatoon competition brought to you by Inkling Performance Labs.' },
-            { property: 'twitter:image', content: 'https://files.iplabs.work/file/iplabs-public/SAC/SAC_Full-Logo.png' }
+            { property: 'twitter:image', content: 'https://files.iplabs.work/file/iplabs-public/SAC/SAC_Full-Logo.png' },
+
+            { name: 'theme-color', content: '#001038' }
         ]
     },
     publicRuntimeConfig: {
