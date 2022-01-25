@@ -30,7 +30,7 @@
                             bg-stone-900/90 md:bg-transparent
                             rounded-b-md sm:rounded-md p-2 md:p-0 pt-32 pb-6 sm:py-2
                             md:!opacity-100 transition-opacity duration-default"
-                        :class="{ 'opacity-100': menuOpen, 'opacity-0': !menuOpen }"
+                        :class="{ 'opacity-100': menuOpen, 'opacity-0 pointer-events-none md:pointer-events-auto': !menuOpen }"
                     >
                         <a
                             v-for="link in navLinks"
