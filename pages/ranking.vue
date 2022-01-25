@@ -7,6 +7,9 @@
             </div>
         </template>
         <div class="grow bg-sac-blue-500">
+            <div class="bg-sac-blue-600 py-4 flex justify-center">
+                <team-search-box />
+            </div>
             <div
                 v-if="!!error"
                 class="page-width-cap py-4 px-3 md:px-16 text-red-300 text-lg"
@@ -17,6 +20,7 @@
                 v-else
                 class="page-width-cap py-4 px-3 md:px-16 text-lg"
             >
+                <div class="mb-4 text-2xl">Top teams</div>
                 <table class="w-full table-auto border-collapse">
                     <thead class="text-left bg-sac-blue-700 text-2xl border-x-2 border-t-2 border-sac-blue-100">
                         <tr>
@@ -43,13 +47,14 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="mt-4 text-stone-300 font-light">Displaying the top {{ rankings.length }} teams. Data retrieved {{ formatDateShort(new Date()) }}</div>
+                <div class="mt-4 text-stone-300 font-light italic">Displaying the top {{ rankings.length }} teams. Data retrieved {{ formatDateShort(new Date()) }}</div>
             </div>
         </div>
     </nuxt-layout>
 </template>
 
 <script lang="ts" setup>
+import TeamSearchBox from '~/components/TeamSearchBox.vue';
 import { useMeta } from '#meta';
 import { useFetch, useRuntimeConfig } from '#app';
 import { SacLeaderboard } from '~/types/sacApi';
