@@ -40,7 +40,7 @@
                 <div class="row-span-1 sm:row-span-2">
                     <div
                         class="w-full h-[80px] w-[80px] bg-cover bg-no-repeat bg-center rounded-full bg-sac-blue-300"
-                        :style="`background-image: url('${team.icon_url === '' ? '/images/sac-placeholder-pfp.png' : team.icon_url}')`"
+                        :style="`background-image: url('${isBlank(team.icon_url) ? '/images/sac-placeholder-pfp.png' : team.icon_url}')`"
                     />
                 </div>
                 <div class="text-4xl font-bold">{{ team.name }}</div>

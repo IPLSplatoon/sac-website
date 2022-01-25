@@ -39,15 +39,15 @@
                             <td>{{ team.total_points }}</td>
                             <td class="flex flex-row items-center">
                                 <div
-                                    class="h-16 w-16 inline-block bg-cover bg-no-repeat bg-center rounded-full mr-4 my-2"
-                                    :style="`background-image: url('${team.icon_url === '' ? '/images/sac-placeholder-pfp.png' : team.icon_url}')`"
+                                    class="h-16 w-16 inline-block bg-cover bg-no-repeat bg-center rounded-full mr-4 my-2 bg-sac-blue-300"
+                                    :style="`background-image: url('${getTeamIconUrl(team)}')`"
                                 />
                                 {{ team.name }}
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="mt-4 text-stone-300 font-light italic">Displaying the top {{ rankings.length }} teams. Data retrieved {{ formatDateShort(new Date()) }}</div>
+                <div class="mt-4 text-stone-300 font-light italic">Displaying the top {{ pluralize('team', rankings.length) }}. Data retrieved {{ formatDateShort(new Date()) }}</div>
             </div>
         </div>
     </nuxt-layout>
@@ -57,8 +57,9 @@
 import TeamSearchBox from '~/components/TeamSearchBox.vue';
 import { useMeta } from '#meta';
 import { useFetch, useRuntimeConfig } from '#app';
-import { SacLeaderboard } from '~/types/sacApi';
+import { SacLeaderboard, SacLeaderboardTeam } from '~/types/sacApi';
 import { formatDateShort } from '~/utils/date';
+import { isBlank, pluralize } from '~/utils/string';
 
 definePageMeta({
     layout: false
@@ -73,4 +74,7 @@ const rankingResponse = await useFetch<string, SacLeaderboard>(`${config.sacApiP
 
 const rankings = rankingResponse.data.value ?? [];
 const error = rankingResponse.error;
+
+const getTeamIconUrl = (team: SacLeaderboardTeam): string =>
+    isBlank(team.icon_url) ? '/images/sac-placeholder-pfp.png' : team.icon_url;
 </script>
