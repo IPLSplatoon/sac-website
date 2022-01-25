@@ -10,13 +10,13 @@
             Enter a team name to get started!
         </div>
         <div
-            v-if="!!error"
+            v-else-if="!!error"
             class="page-width-cap py-4 px-3 md:px-16 text-lg font-light text-center"
         >
             An error has occurred.
         </div>
         <div
-            v-else-if="results.length < 1"
+            v-else-if="results != null && results.length < 1"
             class="page-width-cap py-4 px-3 md:px-16 text-lg font-light text-center"
         >
             Couldn't find any teams.
