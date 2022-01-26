@@ -1,12 +1,10 @@
 <template>
     <form
-        method="get"
-        action="/search"
         class="flex flex-row justify-center"
+        @submit.prevent="handleSubmit"
     >
         <input
             v-model="inputValue"
-            name="name"
             type="text"
             placeholder="Search for a team..."
             class="bg-sac-blue-200 placeholder:italic font-light py-1 px-2 text-xl rounded-md box-border w-56 sm:w-72 focus:outline-none focus:ring-sac-red-dark focus:border-none focus:ring-2"
@@ -40,4 +38,9 @@ const inputValue = ref('');
 watch(() => props.value, newValue => {
     inputValue.value = newValue;
 }, { immediate: true });
+
+const router = useRouter();
+function handleSubmit() {
+    router.push({ name: 'search', query: { name: inputValue.value } });
+}
 </script>
