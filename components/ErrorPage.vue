@@ -1,10 +1,12 @@
 <template>
     <div class="text-center bg-sac-blue-500 py-6">
         <p class="text-4xl">{{ message }}</p>
-        <a
-            href="/"
+        <nuxt-link
+            to="/"
             class="link-button link-button-red mt-5"
-        >Return to main page</a>
+        >
+            Return to main page
+        </nuxt-link>
     </div>
 </template>
 

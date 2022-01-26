@@ -7,8 +7,8 @@
             </div>
             <div class="page-width-cap z-10 relative">
                 <div class="w-full h-20 flex flex-row justify-between items-center drop-shadow-lg">
-                    <a
-                        href="/"
+                    <nuxt-link
+                        to="/"
                         class="w-max h-full z-10 ml-3"
                     >
                         <img
@@ -16,7 +16,7 @@
                             alt="SAC Logo"
                             class="h-full"
                         >
-                    </a>
+                    </nuxt-link>
                     <font-awesome-icon
                         :icon="['fas', 'bars']"
                         class="text-3xl md:hidden cursor-pointer mr-5 z-10"
@@ -32,15 +32,15 @@
                             md:!opacity-100 transition-opacity duration-default"
                         :class="{ 'opacity-100': menuOpen, 'opacity-0 pointer-events-none md:pointer-events-auto': !menuOpen }"
                     >
-                        <a
+                        <nuxt-link
                             v-for="link in navLinks"
                             :key="`link-to_${link.path}`"
-                            :href="link.path"
+                            :to="link.path"
                             class="header-link"
                             :class="{ active: route.path === link.path }"
                         >
                             {{ link.text }}
-                        </a>
+                        </nuxt-link>
                         <div class="grid grid-cols-3 grid-rows-2 gap-1.5 text-white text-3xl md:text-2xl text-center ml-0 md:ml-4">
                             <a
                                 href="https://iplabs.ink/discord"
