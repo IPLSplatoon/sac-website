@@ -1,13 +1,13 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <error-page message="Page not found!" />
+    <nuxt-layout>
+        <error-page message="Page not found!" />
+    </nuxt-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@vue/runtime-core';
+<script lang="ts" setup>
 import ErrorPage from '~/components/ErrorPage.vue';
 
-export default defineComponent({
-    components: { ErrorPage }
+definePageMeta({
+    layout: false
 });
 </script>
