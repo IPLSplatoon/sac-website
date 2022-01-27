@@ -59,14 +59,25 @@ import { isBlank, pluralize } from '~/utils/string';
 import { useFetch, useRuntimeConfig } from '#app';
 import { SacSearchResult } from '~/types/sacApi';
 import ErrorPage from '~/components/ErrorPage.vue';
+import { watch, ref } from '@vue/runtime-core';
+
+const results = ref<SacSearchResult>([]);
+const error = ref(false);
+
+const config = useRuntimeConfig();
+const fetchData = async (query: string) => {
+    const fetchResult = await useFetch<string, SacSearchResult>(`${config.sacApiPath}/team/search/${query}`);
+    results.value = fetchResult.data.value;
+    error.value = fetchResult.error.value;
+};
 
 const route = useRoute();
-const query = Array.isArray(route.query.name) ? route.query.name[0] : route.query.name;
-const config = useRuntimeConfig();
-const fetchResult = await useFetch<string, SacSearchResult>(`${config.sacApiPath}/team/search/${query}`);
-
-const results = fetchResult.data ?? [];
-const error = fetchResult.error;
+const query = ref('');
+watch(() => route.query.name, async (name) => {
+    const newQuery = Array.isArray(name) ? name[0] : name;
+    query.value = newQuery;
+    await fetchData(newQuery);
+}, { immediate: true });
 
 definePageMeta({
     layout: false
