@@ -10,18 +10,15 @@
             >
                 Enter a team name to get started!
             </div>
-            <div
+            <error-page
                 v-else-if="!!error"
-                class="page-width-cap py-4 px-3 md:px-16 text-lg font-light text-center"
-            >
-                An error has occurred.
-            </div>
-            <div
+                allow-retry
+                message="An error has occurred."
+            />
+            <error-page
                 v-else-if="results != null && results.length < 1"
-                class="page-width-cap py-4 px-3 md:px-16 text-lg font-light text-center"
-            >
-                Couldn't find any teams.
-            </div>
+                message="Couldn't find any teams."
+            />
             <div
                 v-else
                 class="page-width-cap py-4 px-3 md:px-16 text-lg font-light text-center"
@@ -61,6 +58,7 @@ import TeamSearchBox from '~/components/TeamSearchBox.vue';
 import { isBlank, pluralize } from '~/utils/string';
 import { useFetch, useRuntimeConfig } from '#app';
 import { SacSearchResult } from '~/types/sacApi';
+import ErrorPage from '~/components/ErrorPage.vue';
 
 const route = useRoute();
 const query = Array.isArray(route.query.name) ? route.query.name[0] : route.query.name;
