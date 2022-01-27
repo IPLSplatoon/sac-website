@@ -38,11 +38,15 @@
                             <td class="pl-8">{{ index + 1 }}</td>
                             <td>{{ team.total_points }}</td>
                             <td class="flex flex-row items-center">
-                                <div
-                                    class="h-16 w-16 inline-block bg-cover bg-no-repeat bg-center rounded-full mr-4 my-2 bg-sac-blue-300"
-                                    :style="`background-image: url('${getTeamIconUrl(team)}')`"
-                                />
-                                {{ team.name }}
+                                <nuxt-link :to="`/team/${team.id}`">
+                                    <div
+                                        class="h-16 w-16 inline-block bg-cover bg-no-repeat bg-center rounded-full mr-4 my-2 bg-sac-blue-300"
+                                        :style="`background-image: url('${getTeamIconUrl(team)}')`"
+                                    />
+                                </nuxt-link>
+                                <nuxt-link :to="`/team/${team.id}`">
+                                    {{ team.name }}
+                                </nuxt-link>
                             </td>
                         </tr>
                     </tbody>

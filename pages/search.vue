@@ -39,12 +39,14 @@
                             text-center sm:text-left"
                 >
                     <div class="row-span-1 sm:row-span-2">
-                        <div
-                            class="w-full h-[80px] w-[80px] bg-cover bg-no-repeat bg-center rounded-full bg-sac-blue-300"
-                            :style="`background-image: url('${isBlank(team.icon_url) ? '/images/sac-placeholder-pfp.png' : team.icon_url}')`"
-                        />
+                        <nuxt-link :to="`/team/${team.id}`">
+                            <div
+                                class="w-full h-[80px] w-[80px] bg-cover bg-no-repeat bg-center rounded-full bg-sac-blue-300"
+                                :style="`background-image: url('${isBlank(team.icon_url) ? '/images/sac-placeholder-pfp.png' : team.icon_url}')`"
+                            />
+                        </nuxt-link>
                     </div>
-                    <div class="text-4xl font-bold">{{ team.name }}</div>
+                    <nuxt-link :to="`/team/${team.id}`" class="text-4xl font-bold">{{ team.name }}</nuxt-link>
                     <div class="text-lg font-light">
                         {{ pluralize('point', team.total_points) }}, {{ pluralize('set', team.sets_won) }} won out of {{ team.sets_played }}
                     </div>
