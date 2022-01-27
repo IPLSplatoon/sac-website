@@ -7,6 +7,14 @@
         >
             Return to main page
         </nuxt-link>
+        <a
+            v-if="allowRetry"
+            class="link-button link-button-red mt-5 ml-5"
+            href="#"
+            @click="retry"
+        >
+            Try again
+        </a>
     </div>
 </template>
 
@@ -20,7 +28,19 @@ export default defineComponent({
         message: {
             type: String,
             required: true
+        },
+        allowRetry: {
+            type: Boolean,
+            default: false
         }
+    },
+
+    setup() {
+        return {
+            retry() {
+                window.location.reload();
+            }
+        };
     }
 });
 </script>
