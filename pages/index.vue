@@ -4,6 +4,7 @@
             <div class="overflow-hidden h-full relative">
                 <video
                     id="header-video"
+                    ref="headerVideo"
                     preload="none"
                     autoplay
                     loop
@@ -103,10 +104,12 @@ import { BfyOrganizationTournaments } from '~/types/battlefy';
 import { formatDateLong, addMinutes } from '~/utils/date';
 import { pluralize } from '~/utils/string';
 
+const headerVideo = ref(null);
+
 onMounted(() => {
-    const headerVideoElem = document.getElementById('header-video') as HTMLVideoElement;
+    const headerVideoElem = headerVideo.value ?? document.getElementById('header-video') as HTMLVideoElement;
     if (headerVideoElem) {
-        headerVideoElem.src = 'https://files.iplabs.work/file/iplabs-public/SAC/web.mp4';
+        headerVideoElem.src = 'https://files.iplabs.work/file/iplabs-public/SAC/web-v2.mp4';
         headerVideoElem.addEventListener('loadeddata', () => {
             headerVideoElem.style.opacity = '1';
         });
