@@ -105,10 +105,12 @@ import { pluralize } from '~/utils/string';
 
 onMounted(() => {
     const headerVideoElem = document.getElementById('header-video') as HTMLVideoElement;
-    headerVideoElem.src = 'https://files.iplabs.work/file/iplabs-public/SAC/web.mp4';
-    headerVideoElem.addEventListener('loadeddata', () => {
-        headerVideoElem.style.opacity = '1';
-    });
+    if (headerVideoElem) {
+        headerVideoElem.src = 'https://files.iplabs.work/file/iplabs-public/SAC/web.mp4';
+        headerVideoElem.addEventListener('loadeddata', () => {
+            headerVideoElem.style.opacity = '1';
+        });
+    }
 });
 
 definePageMeta({
