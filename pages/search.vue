@@ -36,13 +36,18 @@
                 >
                     <div class="row-span-1 sm:row-span-2">
                         <nuxt-link :to="`/team/${team.id}`">
-                            <div
-                                class="w-full h-[80px] w-[80px] avatar"
-                                :style="`background-image: url('${isBlank(team.icon_url) ? '/images/sac-placeholder-pfp.png' : team.icon_url}')`"
+                            <profile-photo
+                                :src="team.icon_url"
+                                class="h-[80px] w-[80px]"
                             />
                         </nuxt-link>
                     </div>
-                    <nuxt-link :to="`/team/${team.id}`" class="text-4xl font-bold">{{ team.name }}</nuxt-link>
+                    <nuxt-link
+                        :to="`/team/${team.id}`"
+                        class="text-4xl font-bold"
+                    >
+                        {{ team.name }}
+                    </nuxt-link>
                     <div class="text-lg font-light">
                         {{ pluralize('point', team.total_points) }}, {{ pluralize('set', team.sets_won) }} won out of {{ team.sets_played }}
                     </div>
@@ -59,6 +64,7 @@ import { useFetch, useRuntimeConfig } from '#app';
 import { SacSearchResult } from '~/types/sacApi';
 import ErrorPage from '~/components/ErrorPage.vue';
 import { watch, ref } from '@vue/runtime-core';
+import ProfilePhoto from '~/components/ProfilePhoto.vue';
 
 const results = ref<SacSearchResult>([]);
 const error = ref(false);

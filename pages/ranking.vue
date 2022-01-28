@@ -39,9 +39,9 @@
                             <td>{{ team.total_points }}</td>
                             <td class="flex flex-row items-center">
                                 <nuxt-link :to="`/team/${team.id}`">
-                                    <div
-                                        class="h-16 w-16 inline-block mr-4 my-2 avatar"
-                                        :style="`background-image: url('${getTeamIconUrl(team)}')`"
+                                    <profile-photo
+                                        :src="team.icon_url"
+                                        class="h-16 w-16 inline-block mr-4 my-2"
                                     />
                                 </nuxt-link>
                                 <nuxt-link :to="`/team/${team.id}`">
@@ -61,9 +61,10 @@
 import TeamSearchBox from '~/components/TeamSearchBox.vue';
 import { useMeta } from '#meta';
 import { useFetch, useRuntimeConfig } from '#app';
-import { SacLeaderboard, SacLeaderboardTeam } from '~/types/sacApi';
+import { SacLeaderboard } from '~/types/sacApi';
 import { formatDateShort } from '~/utils/date';
-import { isBlank, pluralize } from '~/utils/string';
+import { pluralize } from '~/utils/string';
+import ProfilePhoto from '~/components/ProfilePhoto.vue';
 
 definePageMeta({
     layout: false
@@ -78,7 +79,4 @@ const rankingResponse = await useFetch<string, SacLeaderboard>(`${config.sacApiP
 
 const rankings = rankingResponse.data.value ?? [];
 const error = rankingResponse.error;
-
-const getTeamIconUrl = (team: SacLeaderboardTeam): string =>
-    isBlank(team.icon_url) ? '/images/sac-placeholder-pfp.png' : team.icon_url;
 </script>
