@@ -82,7 +82,7 @@
                             <td>{{ tournament.points }}</td>
                             <td>{{ tournament.sets_played }}</td>
                             <td>{{ tournament.sets_won }}</td>
-                            <td>#{{ tournament.placement }}</td>
+                            <td>{{ tournament.placement ? `#${tournament.placement}` : '-' }}</td>
                         </tr>
                     </sac-table>
                 </div>
