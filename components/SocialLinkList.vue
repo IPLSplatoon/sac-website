@@ -1,11 +1,11 @@
 <template>
-    <span class="space-x-1">
+    <span class="space-x-3 sm:space-x-2">
         <a
             v-for="link in displayedLinks"
             :key="`social-link_${link.user}`"
             :href="getUrl(link)"
             :title="getTitle(link)"
-            class="text-white hover:text-stone-300 duration-default"
+            class="text-white hover:text-stone-300 duration-default transition-colors text-3xl sm:text-xl"
         >
             <i
                 v-if="link.type === 'sendou-player' || link.type === 'sendou-team'"
