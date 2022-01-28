@@ -30,6 +30,7 @@ export interface SacTeam {
     sets_played: number
     tournaments: Array<SacTeamTournament>
     sendou_team: TeamSendouProfile
+    season_placement: number
 }
 
 export interface SacTeamTournament {

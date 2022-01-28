@@ -24,7 +24,7 @@
             </div>
             <div class="grow bg-sac-blue-500">
                 <div class="page-width-cap py-4 px-3 md:px-16 text-lg font-light">
-                    <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 mx-auto max-w-lg text-xl">
+                    <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 mx-auto max-w-lg text-xl grid-flow-row ">
                         <div
                             v-for="row in dataRows"
                             :key="`data-row_${row.title}`"
@@ -126,10 +126,10 @@ const getPlayerSocialLinks = (player: SacPlayer): Array<SocialLink> => [
 ];
 
 const dataRows = [
-    { title: 'Sets won', value: team.value?.sets_won },
-    { title: 'Sets played', value: team.value?.sets_played },
+    { title: 'Sets won/played', value: `${team.value?.sets_won}/${team.value?.sets_played}` },
     { title: 'Total points', value: team.value?.total_points },
-    { title: 'Tournaments played', value: team.value?.tournaments.length }
+    { title: 'Tournaments played', value: team.value?.tournaments.length },
+    { title: 'Season placement', value: `#${team.value?.season_placement}` }
 ];
 
 const getBattlefyTournamentUrl = (tournament: SacTeamTournament) =>
