@@ -94,11 +94,13 @@
 <script lang="ts" setup>
 import { isBlank, pluralize } from '~/utils/string';
 import { useFetch, useRuntimeConfig } from '#app';
+import { useMeta } from '#meta';
 import { SacPlayer, SacTeam, SacTeamTournament } from '~/types/sacApi';
 import ErrorPage from '~/components/ErrorPage.vue';
 import SocialLinkList, { SocialLink } from '~/components/SocialLinkList.vue';
 import ProfilePhoto from '~/components/ProfilePhoto.vue';
 import SacTable from '~/components/SacTable.vue';
+import { buildMetaTags } from '~/utils/meta';
 
 const route = useRoute();
 const id = route.params.id;
@@ -106,8 +108,15 @@ const id = route.params.id;
 const config = useRuntimeConfig();
 const fetchResult = await useFetch<string, SacTeam>(`${config.sacApiPath}/team/id/${id}`);
 
-const team = fetchResult.data ?? null;
+const team = fetchResult.data;
 const error = fetchResult.error;
+
+if (team.value !== null) {
+    useMeta({
+        title: `${team.value.name} - SAC`,
+        meta: buildMetaTags({ title: `${team.value.name} on SAC`, imageUrl: team.value?.icon_url })
+    });
+}
 
 definePageMeta({
     layout: false
