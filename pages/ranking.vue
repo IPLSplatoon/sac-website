@@ -29,10 +29,10 @@
                         </tr>
                     </template>
                     <tr
-                        v-for="(team, index) in rankings"
+                        v-for="team in rankings"
                         :key="`ranking-team_${team.id}`"
                     >
-                        <td>{{ index + 1 }}</td>
+                        <td>{{ team.season_placement }}</td>
                         <td>{{ team.total_points }}</td>
                         <td class="flex flex-row items-center">
                             <nuxt-link :to="`/team/${team.id}`">

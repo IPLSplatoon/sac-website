@@ -5,6 +5,7 @@ export interface SacLeaderboardTeam {
     name: string
     icon_url: string
     total_points: number
+    season_placement: number
 }
 
 export type SacSearchResult = Array<SacSearchResultTeam>
