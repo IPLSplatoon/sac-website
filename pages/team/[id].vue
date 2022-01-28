@@ -42,7 +42,7 @@
                             class="sac-rounded-container flex flex-col sm:flex-row items-center text-center sm:text-left space-x-0 sm:space-x-4"
                         >
                             <profile-photo
-                                :src="`https://cdn.discordapp.com/avatars/${player.discord_id}/${player.sendou_profile?.discord_avatar}.jpg`"
+                                :src="getPlayerPhoto(player)"
                                 class="w-16 h-16"
                             />
                             <div class="flex flex-col content-center">
@@ -92,7 +92,7 @@
 </template>
 
 <script lang="ts" setup>
-import { pluralize } from '~/utils/string';
+import { isBlank, pluralize } from '~/utils/string';
 import { useFetch, useRuntimeConfig } from '#app';
 import { SacPlayer, SacTeam, SacTeamTournament } from '~/types/sacApi';
 import ErrorPage from '~/components/ErrorPage.vue';
@@ -134,4 +134,9 @@ const dataRows = [
 
 const getBattlefyTournamentUrl = (tournament: SacTeamTournament) =>
     `https://battlefy.com/${tournament.tournament.battlefy_org_slug}/${tournament.tournament.battlefy_tournament_slug}/${tournament.tournament.battlefy_id}/info?infoTab=details`;
+
+const getPlayerPhoto = (player: SacPlayer): string | null =>
+    isBlank(player.discord_id) || isBlank(player.sendou_profile?.discord_avatar)
+        ? null
+        : `https://cdn.discordapp.com/avatars/${player.discord_id}/${player.sendou_profile?.discord_avatar}.jpg`;
 </script>
