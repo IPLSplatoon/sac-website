@@ -103,13 +103,13 @@ import SacTable from '~/components/SacTable.vue';
 import { buildMetaTags } from '~/utils/meta';
 
 const route = useRoute();
-const id = route.params.id;
+const id = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id;
 
 const config = useRuntimeConfig();
-const fetchResult = await useFetch<string, SacTeam>(`${config.sacApiPath}/team/id/${id}`);
+const fetchResult = isBlank(id) ? null : await useFetch<string, SacTeam>(`${config.sacApiPath}/team/id/${id}`);
 
-const team = fetchResult.data;
-const error = fetchResult.error;
+const team = fetchResult?.data;
+const error = fetchResult?.error;
 
 if (team.value !== null) {
     useMeta({
