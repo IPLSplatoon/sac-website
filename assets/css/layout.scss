@@ -5,3 +5,11 @@
 .page-width-cap {
     @apply mx-auto w-full max-w-screen-lg;
 }
+
+.sac-rounded-container {
+    @apply rounded-md border-2 border-sac-blue-100 bg-sac-blue-400 p-4;
+}
+
+.avatar {
+    @apply bg-cover bg-no-repeat bg-center rounded-full bg-sac-blue-300;
+}

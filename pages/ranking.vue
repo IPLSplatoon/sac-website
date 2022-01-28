@@ -40,7 +40,7 @@
                             <td class="flex flex-row items-center">
                                 <nuxt-link :to="`/team/${team.id}`">
                                     <div
-                                        class="h-16 w-16 inline-block bg-cover bg-no-repeat bg-center rounded-full mr-4 my-2 bg-sac-blue-300"
+                                        class="h-16 w-16 inline-block mr-4 my-2 avatar"
                                         :style="`background-image: url('${getTeamIconUrl(team)}')`"
                                     />
                                 </nuxt-link>

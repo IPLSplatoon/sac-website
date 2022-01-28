@@ -1,6 +1,7 @@
 <template>
     <div class="text-center bg-sac-blue-500 py-6">
         <p class="text-4xl">{{ message }}</p>
+        <p class="text-2xl font-light mt-2 text-stone-200">{{ subtitle }}</p>
         <nuxt-link
             to="/"
             class="link-button link-button-red mt-5"
@@ -28,6 +29,10 @@ export default defineComponent({
         message: {
             type: String,
             required: true
+        },
+        subtitle: {
+            type: String,
+            default: ''
         },
         allowRetry: {
             type: Boolean,

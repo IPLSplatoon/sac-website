@@ -27,18 +27,17 @@
                 <div
                     v-for="team in results"
                     :key="`team_${team.id}`"
-                    class="bg-sac-blue-400 rounded-md
+                    class="sac-rounded-container
                             grid grid-cols-1 sm:grid-cols-with-large-icon gap-x-4 gap-y-1 sm:gap-y-0
-                            p-4 mb-4 last:mb-0
+                            mb-4 last:mb-0
                             text-left
-                            border-2 border-sac-blue-100
                             items-center justify-items-center sm:justify-items-start
                             text-center sm:text-left"
                 >
                     <div class="row-span-1 sm:row-span-2">
                         <nuxt-link :to="`/team/${team.id}`">
                             <div
-                                class="w-full h-[80px] w-[80px] bg-cover bg-no-repeat bg-center rounded-full bg-sac-blue-300"
+                                class="w-full h-[80px] w-[80px] avatar"
                                 :style="`background-image: url('${isBlank(team.icon_url) ? '/images/sac-placeholder-pfp.png' : team.icon_url}')`"
                             />
                         </nuxt-link>
