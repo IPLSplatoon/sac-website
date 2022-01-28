@@ -51,7 +51,7 @@ module.exports = {
             },
         },
         fontFamily: {
-            sans: ['Kanit']
+            sans: ['Kanit', 'Noto', 'sans-serif']
         },
     },
     plugins: [],
