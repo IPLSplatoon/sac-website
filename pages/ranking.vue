@@ -10,12 +10,11 @@
             <div class="bg-sac-blue-600 py-4 flex justify-center">
                 <team-search-box />
             </div>
-            <div
+            <error-page
                 v-if="!!error"
-                class="page-width-cap py-4 px-3 md:px-16 text-red-300 text-lg"
-            >
-                Encountered an error trying to get ranking data.
-            </div>
+                allow-retry
+                message="Encountered an error trying to get ranking data."
+            />
             <div
                 v-else
                 class="page-width-cap py-4 px-3 md:px-16 text-lg"
@@ -64,6 +63,7 @@ import { formatDateShort } from '~/utils/date';
 import { pluralize } from '~/utils/string';
 import ProfilePhoto from '~/components/ProfilePhoto.vue';
 import SacTable from '~/components/SacTable.vue';
+import ErrorPage from '~/components/ErrorPage.vue';
 
 definePageMeta({
     layout: false
