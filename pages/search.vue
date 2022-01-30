@@ -15,6 +15,12 @@
                 allow-retry
                 message="An error has occurred."
             />
+            <div
+                v-else-if="pending"
+                class="text-center py-6 text-4xl"
+            >
+                Loading...
+            </div>
             <error-page
                 v-else-if="results != null && results.length < 1"
                 message="Couldn't find any teams."
@@ -68,10 +74,13 @@ import ProfilePhoto from '~/components/ProfilePhoto.vue';
 
 const results = ref<SacSearchResult>([]);
 const error = ref(false);
+const pending = ref(true);
 
 const config = useRuntimeConfig();
 const fetchData = async (query: string) => {
+    pending.value = true;
     const fetchResult = await useFetch<string, SacSearchResult>(`${config.sacApiPath}/team/search/${query}`);
+    pending.value = false;
     results.value = fetchResult.data.value;
     error.value = fetchResult.error.value;
 };
@@ -80,6 +89,11 @@ const route = useRoute();
 const query = ref('');
 watch(() => route.query.name, async (name) => {
     const newQuery = Array.isArray(name) ? name[0] : name;
+
+    if (isBlank(newQuery)) {
+        return;
+    }
+
     query.value = newQuery;
     await fetchData(newQuery);
 }, { immediate: true });
