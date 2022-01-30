@@ -52,7 +52,10 @@
             <div class="py-8 flex flex-row justify-center relative grow">
                 <div class="max-w-screen-lg w-full px-3 md:px-16 ml-16 md:ml-32">
                     <div class="tournaments-line" />
-                    <div v-if="sacTournaments.length > 0">
+                    <div v-if="pending">
+                        <p class="text-4xl font-bold mb-2">Loading tournaments...</p>
+                    </div>
+                    <div v-else-if="sacTournaments.length > 0">
                         <div
                             v-for="tournament in sacTournaments"
                             :key="`tournament_${tournament._id}`"
@@ -120,8 +123,9 @@ definePageMeta({
     layout: false
 });
 
-const bfyUpcomingTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC&page=1&size=2');
-const bfyPastTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC&page=1&size=10');
+const bfyUpcomingTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC&page=1&size=2', { lazy: true });
+const bfyPastTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC&page=1&size=10', { lazy: true });
+const pending = computed(() => bfyPastTournaments.pending.value || bfyUpcomingTournaments.pending.value);
 const sortedPastTournaments = bfyPastTournaments.data.value?.tournaments ?? [];
 sortedPastTournaments.sort((a, b) => new Date(a.startTime).valueOf() - new Date(b.startTime).valueOf());
 const sacTournaments = [
