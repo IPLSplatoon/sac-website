@@ -17,7 +17,7 @@
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-vue": "^8.3.0",
-    "nuxt3": "^3.0.0-27389502.88da719",
+    "nuxt3": "3.0.0-27396610.ed4f4f5",
     "postcss": "^8.4.5",
     "sass": "^1.49.0",
     "tailwindcss": "^3.0.8",

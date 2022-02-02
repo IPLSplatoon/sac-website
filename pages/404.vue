@@ -1,5 +1,5 @@
 <template>
-    <nuxt-layout>
+    <nuxt-layout name="default">
         <error-page message="Page not found!" />
     </nuxt-layout>
 </template>

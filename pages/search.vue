@@ -1,5 +1,5 @@
 <template>
-    <nuxt-layout>
+    <nuxt-layout name="default">
         <div class="grow bg-sac-blue-500">
             <div class="bg-sac-blue-600 py-4 flex justify-center">
                 <team-search-box :value="query" />

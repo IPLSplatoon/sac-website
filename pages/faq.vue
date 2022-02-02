@@ -1,5 +1,5 @@
 <template>
-    <nuxt-layout>
+    <nuxt-layout name="default">
         <template #header>
             <div class="page-width-cap my-10 md:my-20 text-5xl md:text-7xl font-bold">
                 Frequently Asked Questions

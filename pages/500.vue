@@ -1,5 +1,5 @@
 <template>
-    <nuxt-layout>
+    <nuxt-layout name="default">
         <error-page message="An error has occurred." />
     </nuxt-layout>
 </template>

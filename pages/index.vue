@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout>
+    <NuxtLayout name="default">
         <template #header-background>
             <div class="overflow-hidden h-full relative">
                 <video
