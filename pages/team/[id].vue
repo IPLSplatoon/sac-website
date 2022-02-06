@@ -138,7 +138,7 @@ const dataRows = [
     { title: 'Sets won/played', value: `${team.value?.sets_won}/${team.value?.sets_played}` },
     { title: 'Total points', value: team.value?.total_points },
     { title: 'Tournaments played', value: team.value?.tournaments.length },
-    { title: 'Season placement', value: `#${team.value?.season_placement}` }
+    { title: 'Season placement', value: team.value?.season_placement ? `#${team.value?.season_placement}` : '-' }
 ];
 
 const getBattlefyTournamentUrl = (tournament: SacTeamTournament) =>
