@@ -74,7 +74,7 @@ useMeta({
 });
 
 const config = useRuntimeConfig();
-const rankingResponse = await useFetch<string, SacLeaderboard>(`${config.sacApiPath}/team/top`);
+const rankingResponse = await useFetch<SacLeaderboard>(`${config.sacApiPath}/team/top`);
 
 const rankings = rankingResponse.data.value ?? [];
 const error = rankingResponse.error;

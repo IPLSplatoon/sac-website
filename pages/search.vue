@@ -79,7 +79,7 @@ const pending = ref(true);
 const config = useRuntimeConfig();
 const fetchData = async (query: string) => {
     pending.value = true;
-    const fetchResult = await useFetch<string, SacSearchResult>(`${config.sacApiPath}/team/search/${query}`);
+    const fetchResult = await useFetch<SacSearchResult>(`${config.sacApiPath}/team/search/${query}`);
     pending.value = false;
     results.value = fetchResult.data.value;
     error.value = fetchResult.error.value;

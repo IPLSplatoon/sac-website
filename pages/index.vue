@@ -123,8 +123,8 @@ definePageMeta({
     layout: false
 });
 
-const bfyUpcomingTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC&page=1&size=2', { lazy: true });
-const bfyPastTournaments = await useFetch<string, BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC&page=1&size=10', { lazy: true });
+const bfyUpcomingTournaments = await useFetch<BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC&page=1&size=2', { lazy: true, server: false });
+const bfyPastTournaments = await useFetch<BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC&page=1&size=10', { lazy: true, server: false });
 const pending = computed(() => bfyPastTournaments.pending.value || bfyUpcomingTournaments.pending.value);
 const sortedPastTournaments = bfyPastTournaments.data.value?.tournaments ?? [];
 sortedPastTournaments.sort((a, b) => new Date(a.startTime).valueOf() - new Date(b.startTime).valueOf());
