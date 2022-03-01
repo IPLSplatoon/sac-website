@@ -106,7 +106,7 @@ const route = useRoute();
 const id = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id;
 
 const config = useRuntimeConfig();
-const fetchResult = isBlank(id) ? null : await useFetch<string, SacTeam>(`${config.sacApiPath}/team/id/${id}`);
+const fetchResult = isBlank(id) ? null : await useFetch<SacTeam>(`${config.sacApiPath}/team/id/${id}`);
 
 const team = fetchResult?.data;
 const error = fetchResult?.error;
