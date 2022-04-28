@@ -56,7 +56,7 @@
 
 <script lang="ts" setup>
 import TeamSearchBox from '~/components/TeamSearchBox.vue';
-import { useMeta } from '#meta';
+import { useHead } from '#head';
 import { useFetch, useRuntimeConfig } from '#app';
 import { SacLeaderboard } from '~/types/sacApi';
 import { formatDateShort } from '~/utils/date';
@@ -69,7 +69,7 @@ definePageMeta({
     layout: false
 });
 
-useMeta({
+useHead({
     title: 'SAC Ranking'
 });
 

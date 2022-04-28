@@ -94,7 +94,7 @@
 <script lang="ts" setup>
 import { isBlank, pluralize } from '~/utils/string';
 import { useFetch, useRuntimeConfig } from '#app';
-import { useMeta } from '#meta';
+import { useHead } from '#head';
 import { SacPlayer, SacTeam, SacTeamTournament } from '~/types/sacApi';
 import ErrorPage from '~/components/ErrorPage.vue';
 import SocialLinkList, { SocialLink } from '~/components/SocialLinkList.vue';
@@ -112,7 +112,7 @@ const team = fetchResult?.data;
 const error = fetchResult?.error;
 
 if (team.value !== null) {
-    useMeta({
+    useHead({
         title: `${team.value.name} - SAC`,
         meta: buildMetaTags({ title: `${team.value.name} on SAC`, imageUrl: team.value?.icon_url })
     });
