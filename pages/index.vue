@@ -21,11 +21,13 @@
                     Advanced<br>
                     Circuit
                 </div>
-                <div class="text-3xl font-light my-2 text-sac-red-light">Season 4</div>
+                <div class="text-3xl font-light my-2 text-sac-red-light">Season 5</div>
                 <a
                     href="#more-info-section"
                     class="link-button link-button-red"
-                >Read more</a>
+                >
+                    Read more
+                </a>
                 <i class="mx-1.5" />
                 <a
                     href="https://iplabs.ink/discord"
@@ -42,10 +44,9 @@
                 class="bg-sac-blue-500 py-8 flex flex-row justify-center"
             >
                 <div class="max-w-screen-lg px-3 md:px-16 ml-16 md:ml-32 w-full">
-                    <p class="text-4xl font-bold mb-2">SAC is back for Season 4!</p>
+                    <p class="text-4xl font-bold mb-2">SAC is back for Season 5!</p>
                     <p class="text-lg font-light">
-                        SAC, previously known as Splatoon Amateur Circuit, has been reintroduced as the Splatoon Advanced Circuit.
-                        With help from Inkling Performance Labs, we're creating a mid-level circuit aimed towards +3 players and below.
+                        Splatoon Advanced Circuit is returning for its final tournament in Splatoon 2 history. Play with us to claim your title as the best mid-level team! +3 and below are eligible.
                     </p>
                 </div>
             </div>
@@ -123,9 +124,9 @@ definePageMeta({
     layout: false
 });
 
-const bfyUpcomingTournaments = await useFetch<BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC&page=1&size=2', { lazy: true, server: false });
+const bfyUpcomingTournaments = await useFetch<BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC+Season+5&page=1&size=2', { lazy: true, server: false });
 const bfyPastTournaments = await useFetch<BfyOrganizationTournaments>(
-    'https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC&page=1&size=10',
+    'https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC+Season+5&page=1&size=10',
     { lazy: true, key: 'bfy-past-tournaments', server: false, transform: (response) => {
         response.tournaments.sort((a, b) => new Date(a.startTime).valueOf() - new Date(b.startTime).valueOf());
         return response;
