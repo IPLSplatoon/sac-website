@@ -9,7 +9,7 @@ export default [
     },
     {
         title: 'What’s the eligibility?',
-        description: 'Players that are +3 or below are eligible to enter SAC Season 4. If you enter +2 or +1 during Season 4 and have played already in a SAC Season 4 tournament, these cases will be taken on a case by case basis. If you are new to competitive Splatoon we recommend you check Low Ink, another tournament run by IPL for Low Level.'
+        description: 'Players that are +3 or below are eligible to enter SAC Season 5. If you enter +2 or +1 during Season 5 and have played already in a SAC Season 5 tournament, these cases will be taken on a case by case basis. If you are new to competitive Splatoon we recommend you check Low Ink, another tournament run by IPL for Low Level.'
     },
     {
         title: 'I was banned in a prior season of SAC, can I play?',
@@ -17,7 +17,7 @@ export default [
     },
     {
         title: 'When is the next tournament?',
-        description: 'A list of tournaments that are open for registration and prior from, for Season 4 is available to view on the home page. Officially the season starts on the 15th January 2022.'
+        description: 'A list of tournaments that are open for registration and prior from, for Season 5 is available to view on the home page. Officially the season starts on the 15th January 2022.'
     },
     {
         title: 'How does the point system work?',
