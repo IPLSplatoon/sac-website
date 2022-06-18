@@ -17,7 +17,7 @@ export default [
     },
     {
         title: 'When is the next tournament?',
-        description: 'A list of tournaments that are open for registration and prior from, for Season 5 is available to view on the home page. Officially the season starts on the 15th January 2022.'
+        description: 'A list of tournaments that are open for registration and prior from, for Season 5 is available to view on the home page. Officially the season starts on the 2nd July 2022.'
     },
     {
         title: 'How does the point system work?',
