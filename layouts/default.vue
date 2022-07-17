@@ -138,6 +138,10 @@ export default defineComponent({
                 {
                     path: '/faq',
                     text: 'FAQ'
+                },
+                {
+                    path: '/ranking',
+                    text: 'Ranking'
                 }
             ]
         };
