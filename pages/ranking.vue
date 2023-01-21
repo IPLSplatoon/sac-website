@@ -19,6 +19,15 @@
                 v-else
                 class="page-width-cap py-4 px-3 md:px-16 text-lg"
             >
+                <div class="mb-4 font-light italic">
+                    Displaying rankings for Season 5. View rankings for Season 6
+                    <nuxt-link
+                        to="https://play.sac.ink/leaderboard"
+                        class="text-blue-200 visited:text-purple-300 active:text-purple-400 underline"
+                    >
+                        here.
+                    </nuxt-link>
+                </div>
                 <sac-table>
                     <template #head>
                         <tr>
