@@ -113,7 +113,7 @@ const headerVideo = ref(null);
 onMounted(() => {
     const headerVideoElem = headerVideo.value ?? document.getElementById('header-video') as HTMLVideoElement;
     if (headerVideoElem) {
-        headerVideoElem.src = 'https://files.iplabs.work/file/iplabs-public/SAC/web-v2.mp4';
+        headerVideoElem.src = 'https://static.iplabs.work/SAC/web-v2.mp4';
         headerVideoElem.addEventListener('loadeddata', () => {
             headerVideoElem.style.opacity = '1';
         });
