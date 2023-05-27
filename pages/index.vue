@@ -21,7 +21,7 @@
                     Advanced<br>
                     Circuit
                 </div>
-                <div class="text-3xl font-light my-2 text-sac-red-light">Season 6</div>
+                <div class="text-3xl font-light my-2 text-sac-red-light">Season 7</div>
                 <a
                     href="#more-info-section"
                     class="link-button link-button-red"
@@ -44,9 +44,9 @@
                 class="bg-sac-blue-500 py-8 flex flex-row justify-center"
             >
                 <div class="max-w-screen-lg px-3 md:px-16 ml-16 md:ml-32 w-full">
-                    <p class="text-4xl font-bold mb-2">SAC is back for Season 6!</p>
+                    <p class="text-4xl font-bold mb-2">SAC is back for Season 7!</p>
                     <p class="text-lg font-light">
-                        Splatoon Advanced Circuit is returning for a new year and a new Splatoon! Play with us to claim your title as the best mid-level team! +3 and below are eligible.
+                        SAC is back for the summer with Season 7! Play with us to claim your title as the best mid-level team! +3 and below are eligible.
                     </p>
                 </div>
             </div>
@@ -124,9 +124,9 @@ definePageMeta({
     layout: false
 });
 
-const bfyUpcomingTournaments = await useFetch<BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC+Season+6&page=1&size=2', { lazy: true, server: false });
+const bfyUpcomingTournaments = await useFetch<BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC+Season+7&page=1&size=2', { lazy: true, server: false });
 const bfyPastTournaments = await useFetch<BfyOrganizationTournaments>(
-    'https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC+Season+6&page=1&size=10',
+    'https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC+Season+7&page=1&size=10',
     { lazy: true, key: 'bfy-past-tournaments', server: false, transform: (response) => {
         response.tournaments.sort((a, b) => new Date(a.startTime).valueOf() - new Date(b.startTime).valueOf());
         return response;
