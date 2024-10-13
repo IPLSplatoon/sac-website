@@ -21,7 +21,7 @@
                     Advanced<br>
                     Circuit
                 </div>
-                <div class="text-3xl font-light my-2 text-sac-red-light">Season 7</div>
+                <div class="text-3xl font-light my-2 text-sac-red-light">Season 9</div>
                 <a
                     href="#more-info-section"
                     class="link-button link-button-red"
@@ -44,22 +44,25 @@
                 class="bg-sac-blue-500 py-8 flex flex-row justify-center"
             >
                 <div class="max-w-screen-lg px-3 md:px-16 ml-16 md:ml-32 w-full">
-                    <p class="text-4xl font-bold mb-2">SAC is back for Season 7!</p>
+                    <p class="text-4xl font-bold mb-2">SAC is back for Season 9!</p>
                     <p class="text-lg font-light">
-                        SAC is back for the summer with Season 7! Play with us to claim your title as the best mid-level team! +3 and below are eligible.
+                        SAC is back for the fall with Season 9! Play with us to claim your title as the best mid-level team!
                     </p>
                 </div>
             </div>
             <div class="py-8 flex flex-row justify-center relative grow">
                 <div class="max-w-screen-lg w-full px-3 md:px-16 ml-16 md:ml-32">
                     <div class="tournaments-line" />
-                    <div v-if="pending">
-                        <p class="text-4xl font-bold mb-2">Loading tournaments...</p>
-                    </div>
-                    <div v-else-if="sacTournaments.length > 0">
+                    <div>
+                        <div class="relative mb-8">
+                            <div class="station-button-container">
+                                <div class="station-button" />
+                            </div>
+                            <div class="text-5xl font-bold">Season 9 Qualifiers</div>
+                        </div>
                         <div
-                            v-for="tournament in sacTournaments"
-                            :key="`tournament_${tournament._id}`"
+                            v-for="(tournament, i) in sacTournaments"
+                            :key="`tournament_${i}`"
                             class="relative mb-8 last:mb-2"
                         >
                             <div class="station-button-container">
@@ -67,34 +70,16 @@
                             </div>
                             <p class="text-4xl font-bold mb-2">{{ tournament.name }}</p>
                             <p class="text-lg font-light">
-                                {{ formatDateLong(addMinutes(new Date(tournament.startTime), 30)) }}
-                                <span v-if="tournament.teamsCount > 0">• {{ pluralize('team', tournament.teamsCount) }}</span>
+                                {{ tournament.date }}
                             </p>
                             <a
-                                :href="`https://battlefy.com/inkling-performance-labs/${tournament.slug}/${tournament._id}/info?infoTab=details`"
+                                :href="tournament.link"
+                                target="_blank"
                                 class="link-button link-button-cyan mt-3"
-                                :class="{
-                                    'link-button-cyan': tournament.status === 'registration-open',
-                                    'link-button-gray': tournament.status !== 'registration-open'
-                                }"
                             >
-                                Registration {{ tournament.status === 'registration-open' ? 'open!' : 'closed' }}
+                                View on sendou.ink
                             </a>
                         </div>
-                    </div>
-                    <div
-                        v-else
-                        class="relative mb-8 last:mb-2"
-                    >
-                        <div class="station-button-container">
-                            <div class="station-button" />
-                        </div>
-                        <p class="text-4xl font-bold mb-2">We couldn't find any upcoming tournaments.</p>
-                        <p class="text-lg font-light">Visit us on Battlefy to see more!</p>
-                        <a
-                            href="https://battlefy.com/inkling-performance-labs"
-                            class="link-button link-button-cyan mt-3"
-                        >Battlefy</a>
                     </div>
                 </div>
             </div>
@@ -124,18 +109,28 @@ definePageMeta({
     layout: false
 });
 
-const bfyUpcomingTournaments = await useFetch<BfyOrganizationTournaments>('https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/upcoming?name=SAC+Season+7&page=1&size=2', { lazy: true, server: false });
-const bfyPastTournaments = await useFetch<BfyOrganizationTournaments>(
-    'https://search.battlefy.com/tournament/organization/5c6dbd2da605be0329ecf36a/past?name=SAC+Season+7&page=1&size=10',
-    { lazy: true, key: 'bfy-past-tournaments', server: false, transform: (response) => {
-        response.tournaments.sort((a, b) => new Date(a.startTime).valueOf() - new Date(b.startTime).valueOf());
-        return response;
-    } });
-const pending = computed(() => bfyPastTournaments.pending.value || bfyUpcomingTournaments.pending.value);
-const sacTournaments = computed(() => [
-    ...(bfyPastTournaments.data.value?.tournaments ?? []),
-    ...(bfyUpcomingTournaments.data.value?.tournaments ?? [])
-]);
+const sacTournaments = [
+    {
+        name: 'Qualifier 1',
+        link: 'https://sendou.ink/to/504/register',
+        date: 'October 12, 2024'
+    },
+    {
+        name: 'Qualifier 2',
+        link: 'https://sendou.ink/to/519/register',
+        date: 'October 26, 2024'
+    },
+    {
+        name: 'Qualifier 3',
+        link: 'https://sendou.ink/to/520/register',
+        date: 'November 9, 2024'
+    },
+    {
+        name: 'Qualifier 4',
+        link: 'https://sendou.ink/to/521/register',
+        date: 'November 23, 2024'
+    }
+];
 
 defineExpose({
     sacTournaments
