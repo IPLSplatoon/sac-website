@@ -1,27 +1,15 @@
 export default [
     {
-        title: 'What’s happening with IPL?',
-        description: 'SAC and Midway Ink Tour are joining the IPL family. We’ll be running under IPL for our tournaments and Discord. The same staff will be running tournaments along with some new faces.'
-    },
-    {
-        title: 'Where do I go to information and helpdesk now?',
-        description: 'Going forward SAC will be using <a href="https://iplabs.ink/discord">IPL Discord server</a> for all on going communication and updates.'
-    },
-    {
         title: 'What’s the eligibility?',
-        description: 'Players that are +3 or below are eligible to enter SAC Season 9. If you enter +2 or +1 during Season 9 and have played already in a SAC Season 9 tournament, these cases will be taken on a case by case basis. If you are new to competitive Splatoon we recommend you check Low Ink, another tournament run by IPL for Low Level.'
-    },
-    {
-        title: 'I was banned in a prior season of SAC, can I play?',
-        description: 'Yes! Prior SAC bans are no longer valid, as long as you are within the +3 or below eligible requirement you are welcome to play.'
+        description: 'Any player who is not LUTI Division X or above may play in SAC season 9.<br>While SAC is an event aimed for midlevel teams past the Low Ink skill cap, anyone under the SAC skill cap may play. Exception requests are handled in the IPL discord server if you have a banned player you think should be allowed in.'
     },
     {
         title: 'When is the next tournament?',
-        description: 'A list of tournaments that are open for registration and prior from, for Season 9 is available to view on the home page. Officially the season starts on the 2nd July 2022.'
+        description: 'A list of tournaments that are open for registration and prior from, for Season 9 is available to view on the home page.'
     },
     {
         title: 'How does the point system work?',
-        description: 'Points are awarded as follows: </p> <table><thead><tr><th>Placement &nbsp;</th><th>Points Awarded</th></tr></thead><tbody><tr><td>1st</td><td>100</td></tr><tr><td>2nd</td><td>80</td></tr><tr><td>3rd</td><td>70</td></tr><tr><td>4th</td><td>65</td></tr><tr><td>5-8th</td><td>50</td></tr><tr><td>9th</td><td>40</td></tr><tr><td>10th</td><td>30</td></tr><tr><td>11th</td><td>25</td></tr><tr><td>12th</td><td>20</td></tr><tr><td>13-16th</td><td>15</td></tr></tbody></table><p> With 1-8 is Gold Bracket, and 9-16 being Silver bracket. Teams that do not make the gold or silver bracket will be given 2 points for every set win and 1 point for every set loss.\nIf a team has the same amount of set wins as the 16th place team but does not advance to the silver bracket due to tiebreaks, their score for the tournament will be 10 points.\n'
+        description: 'Points are awarded as follows: </p> <table class="table-auto border-collapse sac-table"><thead class="text-left bg-sac-blue-700 text-xl border-x-2 border-t-2 border-sac-blue-100"><tr><th>Placement &nbsp;</th><th>Points Awarded</th></tr></thead><tbody><tr><td>1st</td><td>150</td></tr><tr><td>2nd</td><td>130</td></tr><tr><td>3rd</td><td>120</td></tr><tr><td>4th</td><td>110</td></tr><tr><td>5-8th</td><td>100</td></tr><tr><td>9th</td><td>90</td></tr><tr><td>10th</td><td>75</td></tr><tr><td>11th</td><td>65</td></tr><tr><td>12th</td><td>60</td></tr><tr><td>13-16th</td><td>50</td></tr><tr><td>17th</td><td>40</td></tr><tr><td>18th</td><td>30</td></tr><tr><td>19th</td><td>25</td></tr><tr><td>20th</td><td>20</td></tr><tr><td>21st-24th</td><td>15</td></tr></tbody></table><p> With 1-8 is Gold Bracket, 9-16 being Silver bracket, and 17-24 being Bronze bracket. Teams that do not make a bracket will be given 2 points for every set win and 1 point for every set loss. If a team has the same amount of set wins as the 24th place team but does not advance to a bracket due to tiebreaks, their score for the tournament will be 10 points.'
     },
     {
         title: 'Can I play with a pickup?',

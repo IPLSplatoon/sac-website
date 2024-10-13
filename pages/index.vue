@@ -89,9 +89,6 @@
 
 <script lang="ts" setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { BfyOrganizationTournaments } from '~/types/battlefy';
-import { formatDateLong, addMinutes } from '~/utils/date';
-import { pluralize } from '~/utils/string';
 
 const headerVideo = ref(null);
 
