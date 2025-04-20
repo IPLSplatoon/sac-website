@@ -21,7 +21,7 @@
                     Advanced<br>
                     Circuit
                 </div>
-                <div class="text-3xl font-light my-2 text-sac-red-light">Season 9</div>
+                <div class="text-3xl font-light my-2 text-sac-red-light">Season 10</div>
                 <a
                     href="#more-info-section"
                     class="link-button link-button-red"
@@ -44,9 +44,9 @@
                 class="bg-sac-blue-500 py-8 flex flex-row justify-center"
             >
                 <div class="max-w-screen-lg px-3 md:px-16 ml-16 md:ml-32 w-full">
-                    <p class="text-4xl font-bold mb-2">SAC is back for Season 9!</p>
+                    <p class="text-4xl font-bold mb-2">SAC is back for Season 10!</p>
                     <p class="text-lg font-light">
-                        SAC is back for the fall with Season 9! Play with us to claim your title as the best mid-level team!
+                        SAC is back for the fall with Season 10! Play with us to claim your title as the best mid-level team!
                     </p>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                             <div class="station-button-container">
                                 <div class="station-button" />
                             </div>
-                            <div class="text-5xl font-bold">Season 9 Qualifiers</div>
+                            <div class="text-5xl font-bold">Season 10 Qualifiers</div>
                         </div>
                         <div
                             v-for="(tournament, i) in sacTournaments"
