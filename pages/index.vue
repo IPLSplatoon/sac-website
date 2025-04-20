@@ -109,23 +109,23 @@ definePageMeta({
 const sacTournaments = [
     {
         name: 'Qualifier 1',
-        link: 'https://sendou.ink/to/504/register',
-        date: 'October 12, 2024'
+        link: 'https://sendou.ink/to/1547/register',
+        date: 'April 26, 2025'
     },
     {
         name: 'Qualifier 2',
-        link: 'https://sendou.ink/to/519/register',
-        date: 'October 26, 2024'
+        link: 'https://sendou.ink/to/1548/register',
+        date: 'May 3, 2025'
     },
     {
         name: 'Qualifier 3',
-        link: 'https://sendou.ink/to/520/register',
-        date: 'November 9, 2024'
+        link: 'https://sendou.ink/to/1549/register',
+        date: 'May 10, 2025'
     },
     {
         name: 'Qualifier 4',
-        link: 'https://sendou.ink/to/521/register',
-        date: 'November 23, 2024'
+        link: 'https://sendou.ink/to/1550/register',
+        date: 'May 17, 2025'
     }
 ];
 
