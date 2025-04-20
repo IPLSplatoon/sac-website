@@ -46,7 +46,7 @@
                 <div class="max-w-screen-lg px-3 md:px-16 ml-16 md:ml-32 w-full">
                     <p class="text-4xl font-bold mb-2">SAC is back for Season 10!</p>
                     <p class="text-lg font-light">
-                        SAC is back for the fall with Season 10! Play with us to claim your title as the best mid-level team!
+                        SAC is back with Season 10! Play with us to claim your title as the best mid-level team!
                     </p>
                 </div>
             </div>
@@ -125,7 +125,7 @@ const sacTournaments = [
     {
         name: 'Qualifier 4',
         link: 'https://sendou.ink/to/1550/register',
-        date: 'May 17, 2025'
+        date: 'May 24, 2025'
     }
 ];
 
