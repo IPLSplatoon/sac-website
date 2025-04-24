@@ -17,7 +17,7 @@
         <template #header>
             <div class="page-width-cap my-10 md:my-20 drop-shadow-lg">
                 <div class="text-5xl md:text-7xl font-bold">
-                    Splatoon<br>
+                    Squid<br>
                     Advanced<br>
                     Circuit
                 </div>
