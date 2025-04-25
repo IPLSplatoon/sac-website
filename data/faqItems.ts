@@ -1,11 +1,11 @@
 export default [
     {
         title: 'What’s the eligibility?',
-        description: 'Any player who is not LUTI Division X or above may play in SAC season 9.<br>While SAC is an event aimed for midlevel teams past the Low Ink skill cap, anyone under the SAC skill cap may play. Exception requests are handled in the IPL discord server if you have a banned player you think should be allowed in.'
+        description: 'Any player who is not LUTI Division 1 or above may play in SAC season 10.<br>While SAC is an event aimed for midlevel teams past the Low Ink skill cap, anyone under the SAC skill cap may play. Exception requests are handled in the IPL discord server if you have a banned player you think should be allowed in.'
     },
     {
         title: 'When is the next tournament?',
-        description: 'A list of tournaments that are open for registration and prior from, for Season 9 is available to view on the home page.'
+        description: 'A list of tournaments that are open for registration and prior from, for Season 10 is available to view on the home page.'
     },
     {
         title: 'How does the point system work?',
