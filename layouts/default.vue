@@ -139,10 +139,6 @@ export default defineComponent({
                     path: '/faq',
                     text: 'FAQ'
                 },
-                {
-                    path: 'https://play.sac.ink/leaderboard',
-                    text: 'Ranking'
-                }
             ]
         };
     }
