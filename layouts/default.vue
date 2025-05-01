@@ -102,7 +102,7 @@
                     src="/images/ipl-powered.png"
                     alt="Powered By Inkling Performance Labs"
                 >
-                <p class="mb-4">Splatoon Advanced Circuit is a part of the Inkling Performance Labs Family.</p>
+                <p class="mb-4">Squid Advanced Circuit is a part of the Inkling Performance Labs Family.</p>
                 <p>© {{ new Date().getFullYear() }} Inkling Performance Labs</p>
                 <p>Designed by the IPL team</p>
             </div>
